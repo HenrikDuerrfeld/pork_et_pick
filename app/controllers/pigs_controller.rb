@@ -1,5 +1,5 @@
 class PigsController < ApplicationController
-
+  
   def index
     @pigs = Pig.all
   end
