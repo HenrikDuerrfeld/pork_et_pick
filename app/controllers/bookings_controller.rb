@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @pig = Pig.find(params[:pig_id])
     @user = current_user
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -11,6 +12,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.pig = @pig
     @booking.user = @user
+    authorize @booking
     if @booking.save
       redirect_to pig_path(@pig)
     else
@@ -22,16 +24,19 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user)
     @pigs = current_user.pigs
     @demands = Booking.where(pig: @pigs)
+    authorize @bookings
   end
 
   def accept
     @booking = Booking.find(params[:id])
     @booking.status = true
+    authorize @booking
   end
 
   def decline
     @booking = Booking.find(params[:id])
     @booking.status = false
+    authorize @booking
   end
 
   private
