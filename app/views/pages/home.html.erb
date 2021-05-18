@@ -1,2 +1,36 @@
-
-<%= link_to 'see all the pigs', pigs_path %>
+<div id="carouselExampleControls" class="carousel slide carousel-height" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://images5.alphacoders.com/100/1006983.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="title-size">Welcome to Pork et Pick</h5>
+        <p class="p-size">Tired of not having a pig for your parties</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://images.omerlocdn.com/resize?url=https%3A%2F%2Fulaval.omerlocdn.com%2Fproduction%2Fglobal%2Fimages%2Faf7b30ee0af91b57cd4aff88e0627629.jpg&width=1024&type=jpeg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="title-size">choose a pig</h5>
+        <p class="p-size">Rent a pig for your party</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://images8.alphacoders.com/103/thumb-1920-1037027.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 class="title-size">Then enjoy</h5>
+        <p class="p-size">Have fun!</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="container text-center mt-4">
+  <%= link_to 'see all the pigs', pigs_path, class: 'btn btn-outline-success rounded' %>
+</div>
