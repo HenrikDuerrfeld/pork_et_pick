@@ -1,5 +1,5 @@
 class PigsController < ApplicationController
-  
+
   def index
     @pigs = Pig.all
   end
@@ -18,7 +18,6 @@ class PigsController < ApplicationController
     if @pig.save
       redirect_to pig_path(@pig)
     else
-      raise
       render :new
     end
   end
