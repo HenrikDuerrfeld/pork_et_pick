@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.all
+    @user = current_user
+    @bookings = Booking.where(user: @user)
   end
 
   def accept
