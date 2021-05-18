@@ -6,3 +6,22 @@
 </ul>
 
 <%= link_to 'add a pig', new_pig_path %>
+<div class="text-center w-50 ml-auto mr-auto">
+  <%= link_to "Add a pig", new_pig_path, class: 'btn btn-outline-danger btn-lg btn-block mt-3' %>
+</div>
+
+<div class="container mt-5">
+  <div class="row ml-1 mb-5">
+    <h1>All the pigs available (<%= @pigs.count %>)</h1>
+  </div>
+  <div class="row mb-5">
+    <% @pigs.each do |pig| %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path pig.photo.key, crop: :fill) %>')">
+            <p><%= link_to pig.name, pig_path(pig), class: 'mr-3 text-light' %>
+            <%= pig.price_per_day%>€/day</p>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
