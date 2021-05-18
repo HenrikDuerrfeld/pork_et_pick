@@ -1,10 +1,18 @@
-<h1>Pig details</h1>
-<p>Pig's Name: <%= @pig.name %></p>
-<p>Description: <%= @pig.description %></p>
-<p>Price Per Day: <%= @pig.price_per_day %>EUROS</p>
-<p>Owner First Name: <%= @pig.user.first_name %></p>
-<p>Owner Last Name: <%= @pig.user.last_name %></p>
 
-<%= link_to 'delete the pig', pig_path, method: :delete %>
-<%= link_to 'edit the pig', edit_pig_path %>
+<div class="card" style="width: 36rem; text-align: center; margin: auto; margin-top: 24px;">
+  <img src='<%= @pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path @pig.photo.key, crop: :fill) %>' class="card-img-top" alt='https://source.unsplash.com/random' style= "height: 250px; object-fit: cover;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @pig.name %></p></h5>
+    <p class="card-text"><%= @pig.description %>
+    <p>Price Per Day: <%= @pig.price_per_day %>EUROS</p>
+    <p>Owner First Name: <%= @pig.user.first_name %>
+    </p><p>Owner Last Name: <%= @pig.user.last_name %>
+    </p><p><%= link_to 'delete  ', pig_path, method: :delete %>
+    <%= link_to '  edit', edit_pig_path %></p>
+</p>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 10px;">
 <%= link_to 'return to all pigs', pigs_path %>
+</div>
+
