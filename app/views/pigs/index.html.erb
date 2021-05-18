@@ -1,11 +1,4 @@
-<ul>
-<% @pigs.each do |pig| %>
-<li>Pig name<%= link_to pig.name, pig_path(pig) %></li>
-<li>Descrition <%= link_to pig.description, pig_path(pig)%></li>
-<% end %>
-</ul>
 
-<%= link_to 'add a pig', new_pig_path %>
 <div class="text-center w-50 ml-auto mr-auto">
   <%= link_to "Add a pig", new_pig_path, class: 'btn btn-outline-danger btn-lg btn-block mt-3' %>
 </div>
