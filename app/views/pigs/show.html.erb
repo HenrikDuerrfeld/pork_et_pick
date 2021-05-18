@@ -1,0 +1,10 @@
+<h1>Pig details</h1>
+<p>Pig's Name: <%= @pig.name %></p>
+<p>Description: <%= @pig.description %></p>
+<p>Price Per Day: <%= @pig.price_per_day %>EUROS</p>
+<p>Owner First Name: <%= @pig.user.first_name %></p>
+<p>Owner Last Name: <%= @pig.user.last_name %></p>
+
+<%= link_to 'delete the pig', pig_path, method: :delete %>
+<%= link_to 'edit the pig', edit_pig_path %>
+<%= link_to 'return to all pigs', pigs_path %>
