@@ -19,8 +19,9 @@ class BookingsController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
-    @bookings = Booking.where(user: @user)
+    @bookings = Booking.where(user: current_user)
+    @pigs = current_user.pigs
+    @demands = Booking.where(pig: @pigs)
   end
 
   def accept
