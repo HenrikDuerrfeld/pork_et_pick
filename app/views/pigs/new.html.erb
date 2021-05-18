@@ -1,1 +1,3 @@
-<%= render "form", pig: @pig %>
+<% if policy(Pig).create? %>
+    <%= render "form", pig: @pig %>
+<% end %>
