@@ -1,0 +1,10 @@
+<div class="col-4 offset-4">
+  <h1>Book <%= @pig.name%> </h1>
+
+  <%= simple_form_for [@pig, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class: 'btn btn-outline-primary mt-3' %>
+  <% end %>
+  <%= link_to "Cancel", pig_path(@pig), class: 'btn btn-outline-danger mt-3' %>
+</div>

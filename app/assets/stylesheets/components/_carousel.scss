@@ -1,0 +1,17 @@
+.carousel-inner {
+  height: 500px;
+  img{
+    object-fit: cover;
+    height: 100%;
+    opacity: 0.73;
+  }
+  .carousel-item {
+    height: 100%;
+  }
+}
+.title-size {
+  font-size: 45px;
+}
+.p-size {
+  font-size: 24px;
+}

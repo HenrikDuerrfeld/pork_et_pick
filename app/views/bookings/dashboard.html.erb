@@ -1,0 +1,23 @@
+ <h1> All your booking demands </h1>
+
+ <ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.user.first_name %></li>
+    <li><%= booking.pig.name %></li>
+    <li><%= booking.status ? "accepted" : "not accepted yet" %></li>
+    <li><%= booking.start_date %></li>
+    <li><%= booking.end_date %></li>
+  <% end %>
+ </ul>
+
+
+<h1> All demands for my piggs </h1>
+ <ul>
+  <% @demands.each do |demand| %>
+    <li><%= demand.user.first_name %></li>
+    <li><%= demand.pig.name %></li>
+    <li><%= demand.status ? "accepted" : "not accepted yet" %></li>
+    <li><%= demand.start_date %></li>
+    <li><%= demand.end_date %></li>
+  <% end %>
+ </ul>
