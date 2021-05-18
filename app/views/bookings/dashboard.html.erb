@@ -16,7 +16,8 @@
   <% @demands.each do |demand| %>
     <li><%= demand.user.first_name %></li>
     <li><%= demand.pig.name %></li>
-    <li><%= demand.status ? "accepted" : "not accepted yet" %></li>
+    <li><%= link_to "Accept", dashboard_path, method: :accept, data: { confirm: 'Are you sure?' }, class: 'text-primary' %></li>
+    <li><%= link_to "Decline", dashboard_path, method: :decline, data: { confirm: 'Are you sure?' }, class: 'text-alert' %></li>
     <li><%= demand.start_date %></li>
     <li><%= demand.end_date %></li>
   <% end %>
