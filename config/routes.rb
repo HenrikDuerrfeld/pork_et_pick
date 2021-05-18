@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "bookings#dashboard"
   patch "dashboard", to: "bookings#accept"
-  patch "dashboard", to: "bookings#decline"
+  put "dashboard", to: "bookings#decline"
 end
