@@ -1,10 +1,13 @@
-<div class="col-4 offset-4">
-  <h1>Book <%= @pig.name%> </h1>
+<div class="col-4 offset-4 mt-5">
+  <div class="d-flex align-items-center justify-content-between"><h1>Book <%= @pig.name%> </h1> <h5 style="color: red;">(<%= @pig.price_per_day  %>€ per day)</h5></div>
+
 
   <%= simple_form_for [@pig, @booking] do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <%= f.submit class: 'btn btn-outline-primary mt-3' %>
+    <%= f.submit 'Book', class: 'btn btn-outline-primary mt-3' %>
   <% end %>
   <%= link_to "Cancel", pig_path(@pig), class: 'btn btn-outline-danger mt-3' %>
 </div>
+
+

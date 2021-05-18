@@ -5,15 +5,15 @@
     <li><%= booking.user.first_name %></li>
     <li><%= booking.pig.name %></li>
     <% if booking.status == nil %>
-        <li>not accepted yet</li>
+        <li style="color: blue;">not accepted yet</li>
     <% elsif booking.status == true %>
-        <li>accepted</li>
+        <li style="color: green;">accepted</li>
     <% else %>
-        <li>decline</li>
+        <li style="color: red;">decline</li>
     <% end %>
-    <%# <%= booking.status ? "accepted" : "not accepted yet"</li> %>
     <li><%= booking.start_date %></li>
     <li><%= booking.end_date %></li>
+    <li>Total : <%= booking.pig.price_per_day * (booking.end_date - booking.start_date).to_f.to_i %> €</li>
   <% end %>
  </ul>
 
