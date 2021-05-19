@@ -3,6 +3,12 @@ class PigsController < ApplicationController
   def index
     skip_policy_scope
     @pigs = Pig.all
+    @markers = @pigs.geocoded.map do |pig|
+      {
+        lat: pig.latitude,
+        lng: pig.longitude
+      }
+    end
   end
 
   def show
