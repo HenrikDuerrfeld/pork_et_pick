@@ -8,9 +8,13 @@
     <p>Owner First Name: <%= @pig.user.first_name %>
     </p><p>Owner Last Name: <%= @pig.user.last_name %>
     <p><%= link_to 'book the pig', new_pig_booking_path(@pig) %></p>
-    </p><p><%= link_to 'delete  ', pig_path, method: :delete %>
-    <%= link_to '  edit', edit_pig_path %></p>
-
+    </p><p>
+    <% if policy(@pig).edit? %>
+      <%= link_to 'delete  ', pig_path, method: :delete %>
+    <% end %>
+    <% if policy(@pig).edit? %>
+      <%= link_to 'edit', edit_pig_path %></p>
+    <% end %>
 </p>
   </div>
 </div>
