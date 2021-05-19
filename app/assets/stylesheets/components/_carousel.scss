@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+
 .carousel-inner {
   height: 500px;
   img{
@@ -10,8 +12,11 @@
   }
 }
 .title-size {
-  font-size: 45px;
+  font-size: 60px;
+  font-family: 'Raleway', sans-serif;
+  color: #EF798A,
 }
 .p-size {
   font-size: 24px;
+  font-family: 'Raleway', sans-serif;
 }
