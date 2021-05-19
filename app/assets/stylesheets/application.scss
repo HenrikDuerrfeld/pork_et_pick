@@ -23,5 +23,20 @@ html {
   padding-bottom: 124px;
 }
 
+.active > .nav-link {
+  color: rgb(245, 122, 143) !important;
+}
+
+.active > .nav-link:hover {
+  color: rgb(155, 37, 57) !important;
+}
+
+.nav-link {
+  color: rgb(250, 162, 177) !important;
+}
+
+.nav-link:hover {
+  color: rgb(155, 37, 57) !important;
+}
 
 
