@@ -1,56 +1,100 @@
- <h1> All my booking demands </h1>
+ <nav class="mt-3 mb-5 col-6 offset-3">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My demands</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My pigs pending requests</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">All requests for my pigs</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <% @bookings.each do |booking| %>
+        <div class="card-product col-6 offset-3">
+          <img src='<%= booking.pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path booking.pig.photo.key, crop: :fill) %>'/>
+          <div class="card-product-infos">
+            <h2><%= booking.pig.name %></h2>
+            <p>Start date : <%= booking.start_date %></p>
+            <p>End date : <%= booking.end_date %></p>
+            <p><strong>Total : <%= booking.pig.price_per_day * (booking.end_date - booking.start_date).to_f.to_i %> €</strong></p>
+          </div>
+          <div class="card-product-infos ml-auto">
+            <% if booking.status == nil %>
+                <h2 style="color: blue;">Status : not accepted yet</h2>
+            <% elsif booking.status == true %>
+                <h2 style="color: green;">Status : accepted</h2>
+            <% else %>
+                <h2 style="color: red;">Status : declined</h2>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% @demands.each do |demand| %>
+      <% if demand.status == nil %>
+          <div class="card-product col-6 offset-3">
+            <img src='<%= demand.pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path demand.pig.photo.key, crop: :fill) %>'/>
+            <div class="card-product-infos w-100%">
+              <h2><%= demand.pig.name %></h2>
+              <p>Renter : <%= demand.user.first_name %></p>
+              <p>Start date : <%= demand.start_date %></p>
+              <p>End date : <%= demand.end_date %></p>
+              <p><strong>Total : <%= demand.pig.price_per_day * (demand.end_date - demand.start_date).to_f.to_i %> €</strong></p>
+            </div>
+            <div class="card-product-infos ml-auto">
+              <%= link_to "Accept", dashboard_path(id: demand.id), method: :patch, data: { confirm: 'Are you sure?' }, class: 'text-primary' %>
+            </div>
+            <div class="card-product-infos">
+              <%= link_to "Decline", dashboard_path(id: demand.id), method: :put, data: { confirm: 'Are you sure?' }, class: 'text-alert' %>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <h2 class="col-6 offset-3"> Accepted </h2>
+      <% @demands.each do |demand| %>
+        <% if demand.status == true %>
+            <div class="card-product col-6 offset-3">
+              <img src='<%= demand.pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path demand.pig.photo.key, crop: :fill) %>'/>
+              <div class="card-product-infos w-100%">
+                <h2><%= demand.pig.name %></h2>
+                <p>Renter : <%= demand.user.first_name %></p>
+                <p>Start date : <%= demand.start_date %></p>
+                <p>End date : <%= demand.end_date %></p>
+                <p><strong>Total : <%= demand.pig.price_per_day * (demand.end_date - demand.start_date).to_f.to_i %> €</strong></p>
+              </div>
+              <div class="card-product-infos ml-auto">
+                <% if demand.status == true %>
+                    <h2 style="color: green;">Status : accepted</h2>
+                <% else %>
+                    <h2 style="color: red;">Status : declined</h2>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
 
- <ul>
-  <% @bookings.each do |booking| %>
-    <li><%= booking.user.first_name %></li>
-    <li><%= booking.pig.name %></li>
-    <% if booking.status == nil %>
-        <li style="color: blue;">not accepted yet</li>
-    <% elsif booking.status == true %>
-        <li style="color: green;">accepted</li>
-    <% else %>
-        <li style="color: red;">decline</li>
-    <% end %>
-    <li><%= booking.start_date %></li>
-    <li><%= booking.end_date %></li>
-    <li>Total : <%= booking.pig.price_per_day * (booking.end_date - booking.start_date).to_f.to_i %> €</li>
-  <% end %>
- </ul>
-
-
-<h1> All demands for my piggs </h1>
-<h2> Pending </h2>
- <ul>
-  <% @demands.each do |demand| %>
-    <% if demand.status == nil %>
-      <li>Renter : <%= demand.user.first_name %></li>
-      <li>Pig name : <%= demand.pig.name %></li>
-      <li><%= link_to "Accept", dashboard_path(id: demand.id), method: :patch, data: { confirm: 'Are you sure?' }, class: 'text-primary' %></li>
-      <li><%= link_to "Decline", dashboard_path(id: demand.id), method: :put, data: { confirm: 'Are you sure?' }, class: 'text-alert' %></li>
-      <li>Start date: <%= demand.start_date %></li>
-      <li>End date : <%= demand.end_date %></li>
-    <% end %>
-  <% end %>
- </ul>
- <h2> Accepted </h2>
- <ul>
-  <% @demands.each do |demand| %>
-    <% if demand.status == true %>
-      <li>Renter : <%= demand.user.first_name %></li>
-      <li>Pig name : <%= demand.pig.name %></li>
-      <li>Start date: <%= demand.start_date %></li>
-      <li>End date : <%= demand.end_date %></li>
-    <% end %>
-  <% end %>
- </ul>
- <h2> Rejected </h2>
- <ul>
-  <% @demands.each do |demand| %>
-    <% if demand.status == false %>
-      <li>Renter : <%= demand.user.first_name %></li>
-      <li>Pig name : <%= demand.pig.name %></li>
-      <li>Start date: <%= demand.start_date %></li>
-      <li>End date : <%= demand.end_date %></li>
-    <% end %>
-  <% end %>
- </ul>
+      <h2 class="col-6 offset-3"> Rejected </h2>
+      <% @demands.each do |demand| %>
+        <% if demand.status == false %>
+            <div class="card-product col-6 offset-3">
+              <img src='<%= demand.pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path demand.pig.photo.key, crop: :fill) %>'/>
+              <div class="card-product-infos w-100%">
+                <h2><%= demand.pig.name %></h2>
+                <p>Renter : <%= demand.user.first_name %></p>
+                <p>Start date : <%= demand.start_date %></p>
+                <p>End date : <%= demand.end_date %></p>
+                <p><strong>Total : <%= demand.pig.price_per_day * (demand.end_date - demand.start_date).to_f.to_i %> €</strong></p>
+              </div>
+              <div class="card-product-infos ml-auto">
+                <% if demand.status == true %>
+                    <h2 style="color: green;">Status : accepted</h2>
+                <% else %>
+                    <h2 style="color: red;">Status : declined</h2>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
