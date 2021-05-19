@@ -22,3 +22,12 @@ html {
 .main-body-container {
   padding-bottom: 124px;
 }
+
+.active > .nav-link {
+  color: rgb(245, 122, 143) !important;
+}
+
+.nav-link {
+  color: rgb(250, 162, 177) !important;
+}
+
