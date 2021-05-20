@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "flatpickr/dist/flatpickr";
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
 body {
   position: relative;
@@ -58,8 +60,9 @@ a {
   color: rgb(155, 37, 57) !important;
 }
 
+.label-hidden {
+  display: none;
+}
 i {
   color:rgb(255, 143, 161);
 }
-
-
