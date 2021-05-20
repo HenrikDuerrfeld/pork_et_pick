@@ -18,11 +18,11 @@
           </div>
           <div class="card-product-infos ml-auto">
             <% if booking.status == nil %>
-                <h2 style="color: blue;">Status : not accepted yet</h2>
+                <h2 style="color: rgb(155, 37, 57);">Not accepted yet</h2>
             <% elsif booking.status == true %>
-                <h2 style="color: green;">Status : accepted</h2>
+                <h2 style="color: #43aa8b;">Accepted</h2>
             <% else %>
-                <h2 style="color: red;">Status : declined</h2>
+                <h2 style="color: red;">Declined</h2>
             <% end %>
           </div>
         </div>
