@@ -14,6 +14,7 @@ class PigsController < ApplicationController
   def show
     @pig = Pig.find(params[:id])
     authorize @pig
+    @booking = Booking.new
   end
 
   def new

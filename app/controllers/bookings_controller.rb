@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     authorize @booking
     if @booking.save
-      redirect_to pig_path(@pig)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
 
-  
+
 
     @booking.update(status: true)
     redirect_to dashboard_path
