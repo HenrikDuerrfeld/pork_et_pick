@@ -10,7 +10,7 @@
         <p>Owner First Name: <%= @pig.user.first_name %></p>
         <p>Owner Last Name: <%= @pig.user.last_name %></p>
         <% if policy(@pig).edit? %>
-          <%= link_to 'delete  ', pig_path, method: :delete %>
+          <%= link_to 'delete  ', pig_path, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         <% if policy(@pig).edit? %>
           <%= link_to 'edit', edit_pig_path %></p>
