@@ -1,20 +1,21 @@
 <div class="container">
   <div class="row justify-content-around align-items-baseline">
-    <div class="card col-sm-12 col-md-5 mr-0 ml-0" style="width: 36rem; text-align: center; margin: auto; margin-top: 24px;">
+    <div class="card col-sm-12 col-md-5 mr-0 ml-0" style="width: 36rem; text-align: left; margin: auto; margin-top: 24px;">
       <img src='<%= @pig.photo.attached? ? (cl_image_path @pig.photo.key, crop: :fill) : 'https://source.unsplash.com/random'%>' class="card-img-top mt-3" alt='photo' style= "height: 250px; object-fit: cover;">
       <div class="card-body">
-        <h5 class="card-title"><%= @pig.name %></p></h5>
-        <p class="card-text"><%= @pig.description %>
-        <p>Price/Day: <%= @pig.price_per_day %>€</p>
-        <p>Location: <%= @pig.location %></p>
-        <p>Owner First Name: <%= @pig.user.first_name %></p>
-        <p>Owner Last Name: <%= @pig.user.last_name %></p>
-        <% if policy(@pig).edit? %>
-          <%= link_to 'delete  ', pig_path, method: :delete %>
-        <% end %>
-        <% if policy(@pig).edit? %>
-          <%= link_to 'edit', edit_pig_path %></p>
-        <% end %>
+        <h5 class="card-title" style="text-align: center;"><%= @pig.name %></h5>
+        <p class="card-text"><i class="fas fa-piggy-bank mr-4"></i><%= @pig.description %></p>
+        <p><i class="fas fa-hand-holding-usd mr-4"></i><%= @pig.price_per_day %>€/day</p>
+        <p><i class="fas fa-map-marker-alt mr-4"></i><%= @pig.location %></p>
+        <p><i class="fab fa-odnoklassniki mr-4"></i>Owner : <%= @pig.user.first_name %> <%= @pig.user.last_name %></p>
+        <div style="text-align: center;">
+          <% if policy(@pig).edit? %>
+            <%= link_to 'delete  ', pig_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          <% if policy(@pig).edit? %>
+            <%= link_to 'edit', edit_pig_path %></p>
+          <% end %>
+        </div>
       </div>
     </div>
 

@@ -11,6 +11,11 @@ class PigsController < ApplicationController
         image_url: helpers.asset_url('http://pngimg.com/uploads/pig/pig_PNG2202.png')
       }
     end
+    if params[:query].present?
+      @pigs = Pig.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @pigs = Pig.all
+    end
   end
 
   def show

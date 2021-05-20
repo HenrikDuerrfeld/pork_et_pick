@@ -32,6 +32,17 @@ a {
   }
 }
 
+.card-sticky{
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.cont{
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
 .active > .nav-link {
   color: rgb(245, 122, 143) !important;
 }
@@ -48,6 +59,14 @@ a {
   color: rgb(155, 37, 57) !important;
 }
 
+
 .label-hidden {
   display: none;
 }
+
+i {
+  color:rgb(255, 143, 161);
+}
+
+
+
