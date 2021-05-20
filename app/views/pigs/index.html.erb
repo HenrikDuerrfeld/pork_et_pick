@@ -2,6 +2,20 @@
   <div class="row ml-1 mb-4 mt-4">
     <h1 class="mb-0">All the pigs available (<%= @pigs.count %>)</h1>
   </div>
+
+    <div>
+    <p>
+      <%= form_tag pigs_path, method: :get do %>
+        <div style="display: flex;">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a pig"%>
+          <%= submit_tag "Search", class: "btn btn-ghost", style: "background-color: #EF959C;" %>
+        </div>
+      <% end %>
+    </p>
+  </div>
   <div class="row">
     <div class="card col-sm-12 col-md-7 mr-0 ml-0 border-0">
       <div class="row" style="background: #F4F4F4; p-2">
