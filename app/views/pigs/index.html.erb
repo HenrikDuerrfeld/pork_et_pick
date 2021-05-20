@@ -3,6 +3,19 @@
   <div class="row ml-1 mb-5">
     <h1>All the pigs available (<%= @pigs.count %>)</h1>
   </div>
+  <div>
+    <p>
+      <%= form_tag pigs_path, method: :get do %>
+        <div style="display: flex;">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a pig"%>
+          <%= submit_tag "Search", class: "btn btn-ghost", style: "background-color: #EF959C;" %>
+        </div>
+      <% end %>
+    </p>
+  </div>
   <div class="row mb-5">
     <% @pigs.each do |pig| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
@@ -13,7 +26,7 @@
       </div>
     <% end %>
   </div>
-            <div id="map"
+          <div id="map"
               style=" height: 100vh;"
               data-markers="<%= @markers.to_json %>"
               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
