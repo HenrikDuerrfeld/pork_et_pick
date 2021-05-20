@@ -6,7 +6,8 @@
     <p class="card-text"><%= @pig.description %>
     <p>Price/Day: <%= @pig.price_per_day %>€</p>
     <p>Owner First Name: <%= @pig.user.first_name %>
-    </p><p>Owner Last Name: <%= @pig.user.last_name %>
+    </p><p>Owner Last Name: <%= @pig.user.last_name %></p>
+    <p>Location: <%= @pig.location %></p>
     <p><%= link_to 'book the pig', new_pig_booking_path(@pig) %></p>
     </p><p>
     <% if policy(@pig).edit? %>
