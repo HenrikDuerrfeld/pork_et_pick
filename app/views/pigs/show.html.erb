@@ -21,8 +21,8 @@
     <div class="card col-sm-12 col-md-5 col-lg-5 mt-4 mr-0 ml-0 pb-5 pt-4">
       <div class="d-flex pl-1 pr-1 align-items-center justify-content-between"><h1 style="color: rgb(245, 122, 143);">Book <%= @pig.name%> </h1> <h5 style="color: rgb(255, 143, 161);">(<%= @pig.price_per_day  %>€ per day)</h5></div>
         <%= simple_form_for [@pig, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :string, required: false, as: :hidden, input_html: { id: "range_start", class:"label-hiddn" } %>
+          <%= f.input :end_date, as: :string, required: false, as: :hidden, input_html: { id: "range_end", class:"label-hidde" } %>
           <%= f.submit "Book", class: 'btn btn-perso mt-3 w-100' %>
         <% end %>
       </div>
