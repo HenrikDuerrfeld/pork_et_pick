@@ -6,7 +6,9 @@ class PigsController < ApplicationController
     @markers = @pigs.geocoded.map do |pig|
       {
         lat: pig.latitude,
-        lng: pig.longitude
+        lng: pig.longitude,
+        infoWindow: render_to_string(partial: 'info_window', locals: { pig: pig }),
+        image_url: helpers.asset_url('http://pngimg.com/uploads/pig/pig_PNG2202.png')
       }
     end
   end
@@ -55,7 +57,7 @@ class PigsController < ApplicationController
   private
 
   def pig_params
-    params.require(:pig).permit(:description, :name, :price_per_day, :status, :user_id, :photo)
+    params.require(:pig).permit(:description, :name, :price_per_day, :status, :user_id, :photo, :location)
   end
 
 end
