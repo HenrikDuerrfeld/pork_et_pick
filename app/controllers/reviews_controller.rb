@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     def create
         @pig = Pig.find(params[:pig_id])
         @review = Review.new(review_params)
+        @review.user = current_user
         @review.pig = @pig
         authorize @pig
         if @review.save
