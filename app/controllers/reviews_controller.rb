@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
         if @review.save
           redirect_to pig_path(@pig)
         else
-          render 'pigs/show'
+          render :new
         end
       end
     
