@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
 
     @booking.update(status: true)
-    redirect_to dashboard_path
+    redirect_to dashboard_path(active_tab: 2)
     authorize @booking
 
   end
@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     @booking.update(status: false)
-    redirect_to dashboard_path
+    redirect_to dashboard_path(active_tab: 2)
     authorize @booking
 
   end
