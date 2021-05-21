@@ -1,9 +1,8 @@
 <div class="cont">
 
   <div class="row ml-1 mb-4 mt-4">
-    <h1 class="mb-0">All the pigs available (<%= @pigs.count %>)</h1>
+    <h2 class="mb-0 writting">All pigs available (<%= @pigs.count %>)</h2>
   </div>
-
   <div>
     <p>
       <%= form_tag pigs_path, method: :get do %>
@@ -24,9 +23,9 @@
       <div class="row" style="background: #F4F4F4; p-2">
         <% @pigs.each do |pig| %>
           <div class="col-sm-12 col-md-12 col-lg-6 p-0 pr-1 pl-1">
-              <div class="card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path pig.photo.key, crop: :fill) %>')">
-                <p><%= link_to pig.name, pig_path(pig), class: 'mr-3 text-light' %>
-                <%= pig.price_per_day%>€/day</p>
+              <div class="writting position-g card-category mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= pig.photo.attachment == nil ? 'https://source.unsplash.com/random' : (cl_image_path pig.photo.key, crop: :fill) %>')">
+                <p class="position-l"><%= link_to pig.name, pig_path(pig), class: 'mr-3 text-light' %></p>
+                <p class="position-lg"><%= pig.price_per_day%>€/day</p>
               </div>
           </div>
         <% end %>
