@@ -38,7 +38,7 @@
       <div class="d-flex align-items-center flex-column">
         <% @pig.reviews.each do |f|%>
           <div class="card card-review col-sm-12 col-md-6 col-lg-6 mt-2  mb-3 mr-0 p-3">
-            <h5 class='m-0 writting'><i class="fas fa-quote-left mr-2 mb-2 size"></i><%= f.review %></h5>
+            <h5 class='m-0 mb-1 writting'><i class="fas fa-quote-left mr-2 size"></i><%= f.review %></h5>
             <p class="mb-0 writting">by : <em> <%= f.user.first_name %> <%= f.user.last_name %></em></p>
           </div>
         <% end %>
