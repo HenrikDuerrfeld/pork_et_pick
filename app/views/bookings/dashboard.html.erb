@@ -21,6 +21,7 @@
                 <h2 style="color: blue;">Status : not accepted yet</h2>
             <% elsif booking.status == true %>
                 <h2 style="color: green;">Status : accepted</h2>
+                <p><%= link_to "Add a review", new_pig_review_path(booking.pig) %></p>
             <% else %>
                 <h2 style="color: red;">Status : declined</h2>
             <% end %>
