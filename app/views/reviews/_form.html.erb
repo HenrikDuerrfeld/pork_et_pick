@@ -1,4 +1,4 @@
 <%= simple_form_for([@pig, @review]) do |f|%>
-    <%= f.input :review, as: :text, input_html: { minlength: 20 }, error: "Username is mandatory", label: false, class:"mt-2" %>
+    <%= f.input :review, as: :text, label: false, class:"mt-2" %>
     <%= f.button :submit, class:"btn btn-perso" %>
 <% end %>
