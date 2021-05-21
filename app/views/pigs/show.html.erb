@@ -22,9 +22,8 @@
 
     <div class="card col-sm-12 col-md-6 col-lg-5 mt-4 mr-0 ml-0 pb-5 pt-4">
       <div class="d-flex pl-1 pr-1 align-items-center justify-content-center"><h1 style="color: rgb(245, 122, 143);">Choose your dates</h1></div>
-
         <%= simple_form_for [@pig, @booking] do |f| %>
-        <div class="d-flex justify-content-center">
+        <div class="card-body">
           <%= f.input :start_date, as: :string, as: :hidden, required: false, input_html: { id: "range_start", class:"label-hidden" } %>
           <%= f.input :end_date, as: :string, as: :hidden, required: false, input_html: { id: "range_end", class:"label-hidden" } %>
         </div>
@@ -32,11 +31,15 @@
         <% end %>
       </div>
     </div>
-  <div> 
-    <% @pig.reviews.each do |f|%>
-      <p><%= f.review %></p>
-    <% end %>
+    <div class="d-flex ml-2 mr-2 justify-content-around;">
+      <% @pig.reviews.each do |f|%>
+        <div class="card col-sm-12 col-md-6 col-lg-5 mt-4 mr-0 pb-5 pt-4">
+          <h3><%= f.user.first_name %> <%= f.user.last_name %></h3>
+          <p><%= f.review %></p>
+        </div>
+      <% end %>
   </div>
+
   <div style="text-align: center" class=" pink-link mb-2 mt-3">
       <%= link_to 'return to all pigs', pigs_path %>
   </div>
