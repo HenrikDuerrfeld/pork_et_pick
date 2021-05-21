@@ -32,6 +32,11 @@
         <% end %>
       </div>
     </div>
+  <div> 
+    <% @pig.reviews.each do |f|%>
+      <p><%= f.review %></p>
+    <% end %>
+  </div>
   <div style="text-align: center" class=" pink-link mb-2 mt-3">
       <%= link_to 'return to all pigs', pigs_path %>
   </div>
