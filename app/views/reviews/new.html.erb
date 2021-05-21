@@ -1,1 +1,8 @@
-<%= render "form", review: @review %>
+<div class="container mt-5 pt-5 text-center">
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <h1 class="mb-3 title-pink">Review for <%= @pig.name %></h1>
+      <%= render "form", review: @review %>
+    </div>
+  </div>
+</div>
