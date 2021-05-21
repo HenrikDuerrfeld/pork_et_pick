@@ -24,7 +24,7 @@
       <div class="d-flex pl-1 pr-1 align-items-center justify-content-center"><h1 style="color: rgb(245, 122, 143);">Choose your dates</h1></div>
 
         <%= simple_form_for [@pig, Booking.new] do |f| %>
-        
+
         <div class="d-flex justify-content-center">
           <%= f.input :start_date, as: :string, as: :hidden, required: false, input_html: { id: "range_start", class:"label-hidden" } %>
           <%= f.input :end_date, as: :string, as: :hidden, required: false, input_html: { id: "range_end", class:"label-hidden" } %>
@@ -34,11 +34,12 @@
       </div>
     </div>
     <div class="container ml-2 mr-4">
-      <div class="row justify-content-around">
+    <h4 class="writting mt-4 mb-4 text-center" style="color: White;  padding: 7px; background-color:rgb(255, 143, 161); border-radius: 5px">All reviews about <%=@pig.name%></h4>
+      <div class="d-flex align-items-center flex-column">
         <% @pig.reviews.each do |f|%>
-          <div class="card col-sm-12 col-md-6 col-lg-5 mt-4 mr-0 pb-5 pt-4">
-            <h3><%= f.user.first_name %> <%= f.user.last_name %></h3>
-            <p><%= f.review %></p>
+          <div class="card card-review col-sm-12 col-md-6 col-lg-6 mt-2  mb-3 mr-0 p-3">
+            <h5 class='m-0 writting'><i class="fas fa-quote-left mr-2 mb-2 size"></i><%= f.review %></h5>
+            <p class="mb-0 writting">by : <em> <%= f.user.first_name %> <%= f.user.last_name %></em></p>
           </div>
         <% end %>
       </div>
