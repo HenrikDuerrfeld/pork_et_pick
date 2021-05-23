@@ -1,4 +1,4 @@
-<div class="container mt-4 col-4 offset-4">
+<div class="container col-lg-5 col-md-6 col-sm-12">
   <h1>New Pig</h1>
   <%= simple_form_for @pig do |f| %>
     <%= f.input :name %>
@@ -6,7 +6,7 @@
     <%= f.input :price_per_day %>
     <%= f.input :location %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Submit", class:"form-actions btn btn-outline-primary rounded mb-3"%>
+    <%= f.submit "Submit", class:"form-actions btn-perso w-100 mb-2"%>
     <%= link_to "back", pigs_path, class:"form-actions btn btn-outline-primary rounded mb-3"%>
   <% end %>
 </div>
