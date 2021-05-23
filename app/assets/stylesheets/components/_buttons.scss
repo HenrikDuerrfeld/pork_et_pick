@@ -16,12 +16,14 @@
 .btn-perso {
   border: 1px solid rgb(239, 121, 138) ;
   border-radius: 7px;
+  background-color: rgb(239, 121, 138) ;
   padding: 20px;
-  color: rgb(239, 121, 138);
+  color: rgb(255, 255, 255);
     &:hover{
-      color: white;
+      color: rgb(239, 121, 138);
       text-decoration: none;
-      background-color: rgb(239, 121, 138) ;
+      background-color: transparent;
+      border: 1px solid rgb(239, 121, 138) ;
       transition: 0.5s ease-in-out;
     }
 }

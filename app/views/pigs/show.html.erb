@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row justify-content-around align-items-baseline">
+  <div class="row mr-2 ml-2 justify-content-around align-items-baseline">
     <div class="card col-sm-12 col-md-6 mr-0 ml-0" style="width: 36rem; text-align: left; margin: auto; margin-top: 24px;">
       <img src='<%= @pig.photo.attached? ? (cl_image_path @pig.photo.key, crop: :fill) : 'https://source.unsplash.com/random'%>' class="card-img-top mt-3" alt='photo' style= "height: 250px; object-fit: cover;">
       <div class="card-body">
@@ -21,7 +21,7 @@
 
 
     <div class="card col-sm-12 col-md-6 col-lg-5 mt-4 mr-0 ml-0 pb-5 pt-4">
-      <div class="d-flex pl-1 pr-1 align-items-center justify-content-center"><h1 style="color: rgb(245, 122, 143);">Choose your dates</h1></div>
+      <div class="d-flex align-items-center justify-content-center"><h1 style="color: rgb(245, 122, 143);">Choose your dates</h1></div>
 
         <%= simple_form_for [@pig, Booking.new] do |f| %>
 
@@ -33,18 +33,18 @@
         <% end %>
       </div>
     </div>
-    <div class="container ml-2 mr-4">
+    <div class="container ml-0 mr-0">
     <h4 class="writting mt-4 mb-4 text-center" style="color: White;  padding: 7px; background-color:rgb(255, 143, 161); border-radius: 5px">All reviews about <%=@pig.name%></h4>
       <div class="d-flex align-items-center flex-column">
         <% @pig.reviews.each do |f|%>
-          <div class="card card-review col-sm-12 col-md-6 col-lg-6 mt-2  mb-3 mr-0 p-3">
+          <div class="card card-review col-sm-12 col-md-6 col-lg-6 mt-0  mb-3 mr-0 ml-0 p-3">
             <h5 class='m-0 writting'><i class="fas fa-quote-left mr-2 mb-2 size"></i><%= f.review %></h5>
             <p class="mb-0 writting">by : <em> <%= f.user.first_name %> <%= f.user.last_name %></em></p>
           </div>
         <% end %>
       </div>
     </div>
-  <div style="text-align: center" class=" pink-link mb-2 mt-3">
+  <div style="text-align: center" class=" pink-link mb-4 mt-3">
       <%= link_to 'return to all pigs', pigs_path %>
   </div>
 </div>
