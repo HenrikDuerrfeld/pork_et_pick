@@ -27,7 +27,7 @@
           </div>
           <div class="card-product-infos ml-auto">
             <% if booking.status == nil %>
-                <h2 style="opacity: 0.2;">Add a review</h2>
+                <h2 style="opacity: 0.1;">Add a review</h2>
             <% elsif booking.status == true %>
               <h2><%= link_to "Add a review", new_pig_review_path(booking.pig) %></h2>
             <% else %>
